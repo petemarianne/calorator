@@ -1,0 +1,120 @@
+@font-face {
+  font-family: "ReemKufi";
+  src: url("../../assets/fonts/ReemKufi-Regular.woff") format("woff");
+  font-style: normal;
+  font-weight: normal;
+}
+
+.header-wrapper {
+  height: 70px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.51);
+
+  .toolbar {
+    justify-content: space-between;
+    padding-top: 10px;
+
+    .toolbar-left-side.desktop {
+      cursor: pointer;
+      width: 34.5%;
+      display: flex;
+      justify-content: center;
+      font-family: ReemKufi, sans-serif;
+      font-size: 64px;
+      color: #EEF982;
+      -webkit-text-stroke-width: 2.5px;
+      -webkit-text-stroke-color: #34753C;
+
+      .logo {
+        margin: 10px -17px 0 -10px;
+
+        img {
+          width: 73px;
+          height: 73px;
+        }
+      }
+    }
+
+    @media only screen and (max-width: 1160px) {
+      .toolbar-left-side.desktop {
+        font-size: 44px;
+        -webkit-text-stroke-width: 2px;
+
+        .logo {
+          margin: 8px -11px 0 -7px;
+
+          img {
+            width: 50px;
+            height: 50px;
+          }
+        }
+      }
+    }
+
+    @media only screen and (max-width: 800px) {
+      .toolbar-left-side.desktop {
+       margin-left: 20px;
+      }
+    }
+
+    .toolbar-right-side.desktop {
+      margin-top: -10px;
+      width: 40%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .submit-an-ad-button-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 10%;
+
+        .submit-an-ad-button {
+          width: 11.5vw;
+        }
+
+        @media only screen and (max-width: 1145px) {
+          .submit-an-ad-button {
+            font-size: 10px;
+            width: 170px;
+          }
+        }
+
+        @media only screen and (max-width: 895px) {
+          .submit-an-ad-button {
+            font-size: 8px;
+            width: 100px;
+          }
+        }
+
+        @media only screen and (max-width: 510px) {
+          .submit-an-ad-button {
+            font-size: 8px;
+            width: 70px;
+          }
+        }
+      }
+
+      .avatar-header {
+        border: 1px solid rgba(0, 0, 0, 0.51);
+        height: 45px;
+        width: 45px;
+      }
+    }
+  }
+}
+
+.modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .modal-content {
+    width: fit-content;
+    block-size: fit-content;
+    min-width: 300px;
+    min-height: 126px;
+    padding: 20px;
+    background-color: white;
+  }
+}
