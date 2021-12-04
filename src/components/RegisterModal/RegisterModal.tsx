@@ -1,7 +1,8 @@
 import { Button, CircularProgress, IconButton, InputBase } from '@material-ui/core';
 import CloseIcon from '@material-ui/icons/Close';
-import React, { FormEvent, useState } from 'react';
+import React, {FormEvent, useContext, useState} from 'react';
 import PicSelect from '../PicUpload/PicSelect';
+import {AuthContext} from "../../contexts/auth-context";
 
 interface LoginModalProps {
     handleClose: () => void
@@ -40,6 +41,8 @@ const RegisterModal: React.FC<LoginModalProps> = (props): JSX.Element => {
         allFields: AllFieldsValidation.InitialState,
         usedEmail: true,
     });
+
+    const {login} = useContext(AuthContext);
 
     const handleEmail = (event: React.ChangeEvent<HTMLInputElement>): void => {
         setFields(current => ({...current, email: event.target.value}));
@@ -124,6 +127,7 @@ const RegisterModal: React.FC<LoginModalProps> = (props): JSX.Element => {
                 }
             }*/
         }
+        login('token', 'userID');
     };
 
     return (
@@ -136,7 +140,7 @@ const RegisterModal: React.FC<LoginModalProps> = (props): JSX.Element => {
             </div>
             <form className='login-wrapper' onSubmit={(e) => {
                 setLoading(true);
-                onSubmit(e).then(() => setLoading(false));
+                onSubmit(e).then(() => {setLoading(false); props.handleClose();});
             }}>
                 <div className='label'>Email</div>
                 <div className={!validation.email ? 'input validate' : 'input'}>

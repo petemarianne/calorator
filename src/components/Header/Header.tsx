@@ -1,15 +1,18 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import './Header.scss';
 import { AppBar, Button, Modal, Toolbar, useMediaQuery } from '@material-ui/core';
 import logo from '../../assets/images/logo.svg';
 import { Link } from 'react-router-dom';
 import LoginModal from '../LoginModal/LoginModal';
 import RegisterModal from '../RegisterModal/RegisterModal';
+import { AuthContext } from '../../contexts/auth-context';
 
 const Header: React.FC = (): JSX.Element => {
     const [openLogin, setOpenLogin] = useState<boolean>(false)
     const [openRegister, setOpenRegister] = useState<boolean>(false)
-    const [sellerID, setSellerID] = useState<boolean>(false)
+
+    const {userID, logout} = useContext(AuthContext);
+
 
     const desktop = useMediaQuery('(min-width: 620px)');
 
@@ -32,13 +35,13 @@ const Header: React.FC = (): JSX.Element => {
                                 }
                             </Link>
                             <div className='toolbar-right-side desktop'>
-                                {sellerID ?
+                                {userID ?
                                     <>
                                         <div className='submit-an-ad-button-wrapper'>
-                                            <Button color='primary' variant='outlined' className='submit-an-ad-button'>My profile</Button>
+                                            <Button color='primary' variant='outlined' className='submit-an-ad-button' component={Link} to='/profile'>My profile</Button>
                                         </div>
                                         <div className='submit-an-ad-button-wrapper'>
-                                            <Button color='primary' variant='contained' className='submit-an-ad-button'>sign out</Button>
+                                            <Button color='primary' variant='contained' className='submit-an-ad-button' onClick={logout}>sign out</Button>
                                         </div>
                                     </>
                                     :

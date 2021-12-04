@@ -1,0 +1,100 @@
+@font-face {
+    font-family: "Rubik";
+    src: url("../../assets/fonts/Rubik-Medium.ttf") format("woff");
+    font-style: normal;
+    font-weight: normal;
+}
+
+.logo404-wrapper {
+    display: flex;
+    justify-content: center;
+
+    .four {
+        margin-top: 55px;
+        font-family: Rubik, sans-serif;
+        font-size: 230px;
+        -webkit-text-stroke-width: 4px;
+        color: #EEF982;
+        -webkit-text-stroke-color: #34753C;
+    }
+
+    .four.one {
+        margin-left: 10px;
+    }
+
+    .logo {
+        margin: 75px -50px 0 -30px;
+
+        img {
+            width: 240px;
+            height: 240px;
+        }
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .logo404-wrapper {
+        .four {
+            font-size: 170px;
+        }
+
+        .logo {
+            margin-top: 70px;
+            margin-right: -43px;
+
+            img {
+                width: 180px;
+                height: 180px;
+            }
+        }
+    }
+}
+
+.message-wrapper {
+    margin: 0 auto;
+    text-align: center;
+    font-size: 36px;
+    width: 670px;
+
+    .page-name {
+        color: #34753C;
+        text-decoration: underline;
+        word-break: break-all;
+    }
+}
+
+@media only screen and (max-width: 720px) {
+    .message-wrapper {
+        font-size: 26px;
+        width: 360px;
+    }
+}
+
+@media only screen and (max-width: 425px) {
+    .message-wrapper {
+        font-size: 20px;
+        width: 300px;
+    }
+}
+
+.button-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 40px;
+    margin-bottom: 350px;
+
+    .go-home-button {
+        width: 217px;
+    }
+}
+
+@media only screen and (max-width: 675px) {
+    .button-wrapper {
+        margin-bottom: 350px;
+
+        .go-home-button {
+            width: 150px;
+        }
+    }
+}

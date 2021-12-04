@@ -1,6 +1,7 @@
 import { Button, CircularProgress, IconButton, InputBase } from '@material-ui/core';
 import CloseIcon from '@material-ui/icons/Close';
-import React, { FormEvent, useState } from 'react';
+import React, {FormEvent, useContext, useState} from 'react';
+import {AuthContext} from "../../contexts/auth-context";
 
 interface LoginModalProps {
     handleClose: () => void
@@ -16,6 +17,9 @@ const LoginModal: React.FC<LoginModalProps> = (props): JSX.Element => {
     });
     const [validation, setValidation] = useState<boolean>(true);
     const [loading, setLoading] = useState<boolean>(false);
+
+    const {login} = useContext(AuthContext);
+
 
     const handleEmail = (event: React.ChangeEvent<HTMLInputElement>): void => {
         setFields(current => ({...current, email: event.target.value}));
@@ -48,6 +52,10 @@ const LoginModal: React.FC<LoginModalProps> = (props): JSX.Element => {
                     });
                 }
             })*/
+        setTimeout(() => {
+            login('token', 'userID');
+            props.handleClose();
+        }, 1300);
     }
 
     return (
