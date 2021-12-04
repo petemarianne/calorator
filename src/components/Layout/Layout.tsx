@@ -8,9 +8,9 @@ const Layout: React.FC = ({ children }): JSX.Element => {
     return (
         <>
             <Header />
-                <main id='main'>
-                    {children}
-                </main>
+            <main id='main'>
+                {children}
+            </main>
             <Footer />
         </>
       );

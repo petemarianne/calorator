@@ -1,6 +1,6 @@
 @font-face {
-  font-family: "ReemKufi";
-  src: url("../../assets/fonts/ReemKufi-Regular.woff") format("woff");
+  font-family: "Rubik";
+  src: url("../../assets/fonts/Rubik-Medium.ttf") format("woff");
   font-style: normal;
   font-weight: normal;
 }
@@ -18,14 +18,14 @@
       width: 34.5%;
       display: flex;
       justify-content: center;
-      font-family: ReemKufi, sans-serif;
+      font-family: Rubik, sans-serif;
       font-size: 64px;
       color: #EEF982;
-      -webkit-text-stroke-width: 2.5px;
+      -webkit-text-stroke-width: 2px;
       -webkit-text-stroke-color: #34753C;
 
       .logo {
-        margin: 10px -17px 0 -10px;
+        margin: 3px -17px 0 -10px;
 
         img {
           width: 73px;
@@ -90,7 +90,7 @@
         @media only screen and (max-width: 510px) {
           .submit-an-ad-button {
             font-size: 8px;
-            width: 70px;
+            width: 80px;
           }
         }
       }
@@ -116,5 +116,121 @@
     min-height: 126px;
     padding: 20px;
     background-color: white;
+
+    .login-or-register-modal-wrapper {
+      width: 400px;
+      height: auto;
+      background-color: white;
+      border-radius: 5px;
+
+      .close-icon-button-wrapper {
+        display: flex;
+        justify-content: right;
+        padding: 0;
+
+        .modal-close-button {
+          padding: 0;
+        }
+      }
+
+      .navigation-bar {
+        display: flex;
+        margin: 15px -20px 30px;
+
+        .login,
+        .registration {
+          width: 50%;
+          text-align: center;
+          font-size: 18px;
+          color: #7f7f7fa3;
+          padding-bottom: 7px;
+          border-bottom: 1.5px solid #7f7f7fa3;
+          letter-spacing: 0.7px;
+          cursor: pointer;
+        }
+
+        .login.active,
+        .registration.active {
+          font-weight: bold;
+          padding-bottom: 10px;
+          color: #34753C;
+          border-bottom: 3px solid #34753C;
+        }
+      }
+
+      .label {
+        margin-left: 25px;
+        font-size: 18px;
+      }
+
+      .input {
+        border: 1px solid rgba(0, 0, 0, 0.51);
+        border-radius: 5px;
+        padding: 0 10px;
+        margin: 9px 25px 15px;
+      }
+
+      .validation {
+        font-size: 14px;
+        color: #d00000;
+        margin: -5px 25px;
+      }
+
+      .validation-registration {
+        font-size: 14px;
+        color: #d00000;
+        margin: -10px 25px 15px;
+      }
+
+      .input.validate {
+        border: 1px solid #d00000;
+      }
+
+      .button-wrapper {
+        display: flex;
+        justify-content: center;
+        margin: 40px 25px 10px;
+
+        .button {
+          width: 100%;
+        }
+      }
+      .drag-and-drop-wrapper {
+        border: #34753C 1px dashed;
+        margin: 20px 25px 15px 20px;
+        text-align: center;
+        color: #34753C;
+        padding: 35px 0;
+        font-size: 18px;
+
+        .upload-file-button {
+          font-size: 14px;
+          margin-top: 5px;
+          height: 30px;
+          width: 160px;
+        }
+
+        .file-name {
+          width: 200px;
+          text-overflow: ellipsis;
+          overflow: hidden;
+          margin: 0 auto;
+          white-space: nowrap;
+        }
+
+        .re-upload-file-button {
+          font-size: 10px;
+          margin-top: 5px;
+          height: 25px;
+          width: 150px;
+        }
+      }
+    }
+
+    @media only screen and (max-width: 768px) {
+      .login-or-register-modal-wrapper {
+        width: 100%;
+      }
+    }
   }
 }

@@ -6,11 +6,12 @@ import Main from './pages/Main/Main';
 
 
 const App: React.FC = (): JSX.Element => {
+
     return (
         <div className='App'>
             <BrowserRouter>
                 <Routes>
-                    <Route path='/' element={<Main/>} />
+                    <Route path='/' element={<Main />} />
                 </Routes>
             </BrowserRouter>
         </div>

@@ -10,6 +10,16 @@ body {
       }
     }
 
+    &.MuiButton-containedSecondary {
+      background-color: #895F27;
+      color: #fff;
+      box-shadow: none;
+
+      &:hover {
+        background-color: rgba(#895F27, 0.8);
+      }
+    }
+
     &.MuiButton-outlinedPrimary {
       border-color: #34753C;
       color: #34753C;
