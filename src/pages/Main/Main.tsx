@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './Main.scss';
 import { Button, CircularProgress } from '@material-ui/core';
+import {app} from "../../firebase";
 
 const Main = () => {
     const [file, setFile] = useState<File>();
@@ -36,6 +37,19 @@ const Main = () => {
         }
     };
 
+    const getInfo = async () => {
+        setLoading(true);
+        const storageRef = app.storage().ref();
+        if (file) {
+            const fileRef = storageRef.child(file.name);
+            await fileRef.put(file);
+            const fileURL: string = await fileRef.getDownloadURL();
+            //здесь будет делаться post запрос с fileURL, а респонс - json с информацией КБЖУ
+            setLoading(false);
+            setInfo(true);
+        }
+    }
+
     const uploadedJSX =
         <>
             <div className='text upload'>Uploaded!</div>
@@ -45,13 +59,7 @@ const Main = () => {
                     variant='contained'
                     color='primary'
                     className='button'
-                    onClick={() => {
-                        setLoading(true);
-                        setTimeout(() => {
-                            setLoading(false);
-                            setInfo(true);
-                        }, 2000);
-                    }}
+                    onClick={getInfo}
                 >
                     get info
                 </Button>

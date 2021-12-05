@@ -2,7 +2,8 @@ import { Button, CircularProgress, IconButton, InputBase } from '@material-ui/co
 import CloseIcon from '@material-ui/icons/Close';
 import React, {FormEvent, useContext, useState} from 'react';
 import PicSelect from '../PicUpload/PicSelect';
-import {AuthContext} from "../../contexts/auth-context";
+import { AuthContext } from '../../contexts/auth-context';
+import { app } from '../../firebase';
 
 interface LoginModalProps {
     handleClose: () => void
@@ -99,19 +100,18 @@ const RegisterModal: React.FC<LoginModalProps> = (props): JSX.Element => {
                     flag = true;
                 }
             }
-            /*const storageRef = app.storage().ref();
+            const storageRef = app.storage().ref();
             if (flag && file) {
                 const fileRef = storageRef.child(file.name);
                 await fileRef.put(file);
                 const fileUrl: string = await fileRef.getDownloadURL();
-                const registerResponse = await fetch('/api/auth/register',
+                /*const registerResponse = await fetch('/api/auth/register',
                     {
                         method: 'POST',
                         body: JSON.stringify({
                             email: fields.email,
                             password: fields.password,
                             name: fields.name,
-                            phone: fields.phone,
                             avatar: fileUrl
                         }),
                         headers: {'Content-Type': 'application/json'}
@@ -124,8 +124,8 @@ const RegisterModal: React.FC<LoginModalProps> = (props): JSX.Element => {
                     if (registerData.message === 'This email is already used!') {
                         setValidation(prevState => ({...prevState, usedEmail: false}));
                     }
-                }
-            }*/
+                }*/
+            }
         }
         login('token', 'userID');
     };
